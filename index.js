@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     });
 })               
 
-  
+
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}/서버연결완료`)
+  console.log(`Example app listening at http://localhost:${port}`)
 })
