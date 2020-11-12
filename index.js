@@ -13,10 +13,6 @@ app.get('/', (req, res) => {
           res.sendStatus(204);
         }
       })
-      .catch(error => {
-        console.log(error);
-        res.status(500).send(error);
-      });
   });
 
   
