@@ -4,6 +4,7 @@ const port = 3000
 const { user } = require('./models');
 
 
+const { user } = require('./models'); 
 app.get('/', (req, res) => {
     user
       .findAll()
