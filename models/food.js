@@ -15,7 +15,17 @@ module.exports = (sequelize, DataTypes) => {
   };
   food.init({
     name: DataTypes.STRING,
-    food_category: DataTypes.STRING
+    food_category: DataTypes.STRING,
+    createdAt : {
+      type: DataTypes.DATE,
+      defaultValue : new Date(),
+      allowNull : false
+    },
+    updatedAt : {
+      type: DataTypes.DATE,
+      defaultValue : new Date(),
+      allowNull : false
+    }
   }, {
     sequelize,
     modelName: 'food',
