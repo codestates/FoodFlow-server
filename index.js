@@ -4,16 +4,20 @@ const port = 3000
 const { user } = require('./models');
  
 app.get('/', (req, res) => {
-    user
-      .findAll()
-      .then(result => {
-        if (result) {
-          res.status(200).json(result);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-  });
+  user
+    .findAll()
+    .then(result => {
+      if (result) {
+        res.status(200).json(result);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(500); // Server error
+    });
+})               
 
   
 app.listen(port, () => {
