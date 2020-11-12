@@ -2,9 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const { user } = require('./models');
-
-
-const { user } = require('./models'); 
+ 
 app.get('/', (req, res) => {
     user
       .findAll()
