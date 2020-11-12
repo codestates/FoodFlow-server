@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
         res.sendStatus(204);
       }
     })
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(500); // Server error
+    });
 })               
 
 app.listen(port, () => {
