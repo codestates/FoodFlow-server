@@ -11,7 +11,7 @@ const session = require("express-session");
 app.use(
   cors({
     origin: ["http://im23-foodflow.s3-website.ap-northeast-2.amazonaws.com"],
-    method: ["GET", "POST", "PATCH"],
+    method: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
