@@ -18,17 +18,17 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    profile_image: DataTypes.STRING,
-    is_social: DataTypes.BOOLEAN,
-    is_active: DataTypes.BOOLEAN,
+    profileImage: DataTypes.STRING,
+    isSocial: DataTypes.BOOLEAN,
+    isActive: DataTypes.BOOLEAN,
     createdAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     },
     updatedAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     }
   }, {
