@@ -1,7 +1,7 @@
 'use strict';
 const {
   Model
-} = require('sequelize');
+} = require('sequeligze');
 module.exports = (sequelize, DataTypes) => {
   class post extends Model {
     /**
@@ -17,14 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     text: DataTypes.STRING,
     rating: DataTypes.STRING,
     foodImage: DataTypes.STRING,
-    createdAt : {
+   createdAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     },
     updatedAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     }
   }, {

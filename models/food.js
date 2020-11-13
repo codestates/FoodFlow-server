@@ -18,12 +18,12 @@ module.exports = (sequelize, DataTypes) => {
     foodCategory: DataTypes.STRING,
     createdAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     },
     updatedAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     }
   }, {

@@ -23,12 +23,12 @@ module.exports = (sequelize, DataTypes) => {
     isActive: DataTypes.BOOLEAN,
     createdAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     },
     updatedAt : {
       type: DataTypes.DATE,
-      defaultValue : new Date(),
+      defaultValue : sequelize.fn('NOW'),
       allowNull : false
     }
   }, {
