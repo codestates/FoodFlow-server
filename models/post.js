@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   post.init({
     text: DataTypes.STRING,
     rating: DataTypes.STRING,
-    food_image: DataTypes.STRING,
+    foodImage: DataTypes.STRING,
     createdAt : {
       type: DataTypes.DATE,
       defaultValue : new Date(),

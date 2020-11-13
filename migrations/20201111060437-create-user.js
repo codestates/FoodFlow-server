@@ -17,13 +17,13 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      profile_image: {
+      profileImage: {
         type: Sequelize.STRING
       },
-      is_social: {
+      isSocial: {
         type: Sequelize.BOOLEAN
       },
-      is_active: {
+      isActive: {
         type: Sequelize.BOOLEAN
       }
     });

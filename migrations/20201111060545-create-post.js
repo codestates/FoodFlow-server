@@ -14,7 +14,7 @@ module.exports = {
       rating: {
         type: Sequelize.STRING
       },
-      food_image: {
+      foodImage: {
         type: Sequelize.STRING
       }
     });
