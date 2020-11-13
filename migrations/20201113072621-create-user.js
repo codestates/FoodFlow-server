@@ -26,16 +26,16 @@ module.exports = {
       isActive: {
         type: Sequelize.BOOLEAN
       },
-      createdAt : {
-type: Sequelize.DATE,
-defaultValue : Sequelize.fn('NOW'),
-allowNull : false
-},
-updatedAt : {
-type: Sequelize.DATE,
-defaultValue : Sequelize.fn('NOW'),
-allowNull : false
-}
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue : Sequelize.fn('NOW')
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue : Sequelize.fn('NOW')
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
