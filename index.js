@@ -11,10 +11,11 @@ const session = require("express-session");
 app.use(
   cors({
     origin: ["http://im23-foodflow.s3-website.ap-northeast-2.amazonaws.com"],
-    method: ["GET", "POST"],
+    method: ["GET", "POST", "PATCH"],
     credentials: true,
   })
 );
+
 app.use(
   session({
     secret: "@switzerland",
