@@ -10,7 +10,9 @@ module.exports =
     //포트번호 안적어도 되는건지?
     "port" : process.env.DATABASE_PORT,
     //dialectOptions 안써도되는지?
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone": "-09:00"
+
   },
   "test": {
     "username": "root",
