@@ -152,6 +152,14 @@ app.post("/user/signin", (req, res) => {
         });
 });
 
+////////////////////로그아웃 (테스트 필요)
+
+  app.post("user/signout", (req, res) => {
+     req.session.destroy(() => {
+      res.status(205).send('로그아웃 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ ')
+    });
+  });
+
 
 // /////////////////// my page(끝)
 
