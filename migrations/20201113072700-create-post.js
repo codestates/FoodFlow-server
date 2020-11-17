@@ -8,6 +8,24 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      foodId: {
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'food',
+          key: 'id',
+        }
+      },
+      userId: {
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
+        }
+      },
       text: {
         type: Sequelize.STRING
       },

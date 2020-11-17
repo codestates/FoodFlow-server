@@ -11,6 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.post.belongsTo(models.user, {
+        foreignKey: 'userId'
+      })
+      models.post.belongsTo(models.food, {
+        foreignKey: 'foodId'
+      })
     }
   };
   post.init({
