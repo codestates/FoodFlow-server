@@ -34,7 +34,7 @@ app.use(
 );
 app.use(cors({
     // origin: ["http://im23-foodflow.s3-website.ap-northeast-2.amazonaws.com"],
-    origin: ["http://localhost:3002"],
+    origin: ["http://localhost:3001"],
     method: [
         "GET", "POST", "PUT", "DELETE"
     ],
@@ -118,38 +118,39 @@ app.post("/user/signin", (req, res) => {
 
     const {email, password} = req.body;
 
-    req
-        .session
-        .regenerate(() => {
-            user
-                .findOne({
-                    where: {
-                        email: email,
-                        password: password
-                    }
-                })
-                .then((data) => {
-                  console.log(data.id)
-                    if (!data) {
-                        return res
-                            .status(404)
-                            .send("이미있는유저");
-                    }
-                    req.session.userid = data.id;
-                    res
-                        .status(200)
-                        .json(
-                          {
-                            id: data.id, email: data.email, username: data.username, profileImage: data.profileImage, createdAt: data.createdAt, updatedAt: data.updatedAt,
-                          session:req.session.userid}
-                        );
-                })
-                .catch((err) => {
-                    res
-                        .status(404)
-                        .send(err);
-                });
+  req
+    .session
+    .regenerate(() => {
+      user
+        .findOne({
+          where: {
+            email: email,
+            password: password
+          }
+        })
+        .then((data) => {
+          console.log(data.id)
+          if (!data) {
+            return res
+              .status(404)
+              .send("이미있는유저");
+          }
+          req.session.userid = data.id;
+          res
+            .status(200)
+            .json(
+              {
+                id: data.id, email: data.email, username: data.username, profileImage: data.profileImage, createdAt: data.createdAt, updatedAt: data.updatedAt,
+                session: req.session.userid
+              }
+            );
+        })
+        .catch((err) => {
+          res
+            .status(404)
+            .send(err);
         });
+    });
 });
 
 ////////////////////로그아웃 (테스트 필요)
@@ -206,39 +207,26 @@ app.get('/mypage', (req, res) => {
   
 
 
-
-
-
-
-
-
-
-
-
-
 /////////write (테스트필요)
 app.post('/food/write', (req, res) => {
   
    const sess = req.session;
   
   if (sess.userid) {
-  
+   
     food.
-    findOrCreate({
-      where: {
-        name: req.body.name,
-      },
-      defaults: {
-        name: req.body.name
-      }
-    }).then(async ([food, created]) => {
-      if (!created) {
-      return res.status(409).send('응 그래ㅋㅋ')
-      } else {
-         const data = await food.get({plain: true});
-       return res.status(201).json(data)
-      }
-    })
+      findOrCreate({
+        where: {
+          name: req.body.name,
+        },
+        defaults: {
+          name: req.body.name
+        }
+      })
+      .then(async ([food, created]) => {
+          const data = await food.get({ plain: true });
+          return res.status(201).json(data)
+      })
       .catch((err) => { res.status(500).send('글쓰기 에러ㅋㅋ') })
 
     
@@ -366,11 +354,11 @@ const upload = multer({
 
 //하나만 업로드 시 upload.single 미들웨어, 여러 개의 경우 multiple 미들웨어를 사용해야함
 app.post('/user/upload/profile', upload.single('file'), async (req, res) => {
-    const {email} = req.body
-    const {originalname} = req
-        .file
-        console
-        .log("req.body.email : " + email)
+    const {email, foodId} = req.body
+    const {originalname} = req.file
+    
+    console.log("객체 테스트 : " + email)
+    console.log("객체 테스트2 : " + foodId)
     console.log("req.file.path : " + req.file.path)
 
     user
