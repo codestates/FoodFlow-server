@@ -34,7 +34,7 @@ app.use(
 );
 app.use(cors({
     // origin: ["http://im23-foodflow.s3-website.ap-northeast-2.amazonaws.com"],
-    origin: ["http://localhost:3002"],
+    origin: ["http://localhost:3001"],
     method: [
         "GET", "POST", "PUT", "DELETE"
     ],
