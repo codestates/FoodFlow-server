@@ -302,6 +302,39 @@ app.delete('posts/delete', (req, res) => {
 
 
 
+////////user (서버에 추가로 넣을거)
+app.get('/user', (req, res) => {
+  if (req.session.userid) {
+
+     user
+                .findOne({
+                    where: {
+                        id: req.session.userid,
+                    }
+                })
+       .then((result) => {
+         return res.status(200).json(result);
+       }) 
+      .catch(err => {
+        console.error(err);
+        res.sendStatus(500); // Server error
+      });
+  }
+})
+  
+///////users
+app.get('/users', (req, res) => {
+  user
+    .findAll() 
+       .then((result) => {
+         return res.status(200).send(result);
+       }) 
+      .catch(err => {
+        console.error(err);
+        res.sendStatus(500); // Server error
+      });
+  })
+
 
 //////////////////association 테스트
 
