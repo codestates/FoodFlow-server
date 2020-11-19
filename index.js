@@ -155,7 +155,7 @@ app.post("/user/signin", (req, res) => {
 
 ////////////////////로그아웃 (테스트 필요)
 
-  app.post("user/signout", (req, res) => {
+  app.post("/user/signout", (req, res) => {
      req.session.destroy(() => {
       res.status(205).send('로그아웃 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ ')
     });
@@ -256,7 +256,7 @@ app.post('/food/write', (req, res) => {
 
 
 ///////////update /////////(테스트필요)
-app.put('posts/edit', (req, res) => {
+app.put('/posts/edit', (req, res) => {
   
   if (req.session.userid) { 
 
@@ -281,7 +281,7 @@ app.put('posts/edit', (req, res) => {
 
 
 ////////////////delete //////////(테스트필요)
-app.delete('posts/delete', (req, res) => {
+app.delete('/posts/delete', (req, res) => {
   if (req.session.userid) { 
   post.destory({
     where:{id:req.body.postId}//?
